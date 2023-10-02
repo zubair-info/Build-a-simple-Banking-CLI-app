@@ -1,0 +1,23 @@
+<?php
+namespace App\Classes;
+use App\Classes\Auth;
+use App\Classes\Storage;
+
+class AdminManager extends User implements Auth {
+
+    protected $storage;
+    protected $users;
+
+    public function __construct(Storage $storage) {
+        $this->storage = $storage;
+        // $this->users = $this->storage->load(Transaction::getModelName());
+    }
+
+    public function register($username, $password) {
+        // Admin-specific registration logic
+    }
+
+    public function login($username, $password) {
+        // Admin-specific login logic
+    }
+}

@@ -1,30 +1,15 @@
 <?php
 namespace App\Classes;
+use App\Classes\Storage;
 
+abstract class User {
+    protected $storage;
+    protected array $users;
 
-class User {
-
-    protected $name;
-    protected $email;
-    protected $password;
-
-    public function __construct($name, $email, $password) {
-        $this->name = $name;
-        $this->email = $email;
-        $this->password = $password;
+    public function __construct(Storage $storage) {
+        $this->storage = $storage;
     }
 
-    public function getName() {
-        return $this->name;
-    }
-    public function getEmail() {
-        return $this->email;
-    }
-
-    public function getPassword() {
-        return $this->password;
-    }
-    
-
-
+    public abstract function register($username, $password);
+    public abstract function login($username, $password);
 }
